@@ -436,10 +436,42 @@ text-align:center;
                      </div>
 
 
-                        <h4><span id="prediction"></span></h4>
-
+     <div class="col-md-12 " style="text-align: center">
+                  <h3><span id="prediction"> </span></h3>
+                </div>
 
 </form>
+
+<script>
+
+
+function form_handler(event) {
+        event.preventDefault(); // Don't submit the form normally
+    }
+    function send_data()
+    {
+        console.log("HI");
+        document.querySelector('form').addEventListener("submit",form_handler);
+
+        var fd=new FormData(document.querySelector('form'));
+
+        var xhr= new XMLHttpRequest({mozSystem: true});
+
+        xhr.open('POST','/result',true);
+        document.getElementById('prediction').innerHTML="Wait! Predicting Price.....";
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == XMLHttpRequest.DONE){
+                document.getElementById('prediction').innerHTML="Prediction: ₹"+xhr.responseText;
+                console.log(xhr.responseText);
+
+            }
+        };
+
+        xhr.onload= function(){};
+
+        xhr.send(fd);
+    }
+</script>
 
 
 

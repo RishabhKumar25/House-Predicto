@@ -6,7 +6,7 @@ import pickle
 
 app = Flask(__name__)
 data= pd.read_csv('train.csv')
-model = pickle.load(open("MachineKnight.pkl","rb"))
+model = pickle.load(open("MachineKnightModel.pkl","rb"))
 
 
 @app.route('/')
@@ -50,12 +50,13 @@ def result():
     furnishing = request.form.get('furnishing')
 
 
+    input = pd.DataFrame([[lease_type,gym,lift,swimming_pool,negotiable,furnishing,parking,sqft,bathroom,water_supply,balconies]],
+                         columns=['lease_type', 'gym', 'lift', 'swimming_pool', 'negotiable','furnishing','parking','property_size','bathroom','water_supply','balconies'])
+    #prediction= model.predict(pd.DataFrame(columns=['lease_type', 'gym', 'lift', 'swimming_pool', 'negotiable','furnishing','parking','property_size','bathroom','water_supply','balconies'],
+                              #data=np.array([lease_type,gym,lift,swimming_pool,negotiable,furnishing,parking,sqft,bathroom,water_supply,balconies]).reshape(1, 11)))
+    prediction = model.predict(input)[0] * 1e5
 
-    prediction= model.predict(pd.DataFrame(columns=['lease_type', 'gym', 'lift', 'swimming_pool', 'negotiable','furnishing','parking','property_size','bathroom','water_supply','balconies'],
-                              data=np.array([lease_type,gym,lift,swimming_pool,negotiable,furnishing,parking,sqft,bathroom,water_supply,balconies]).reshape(1, 11)))
-    print(prediction)
-
-    return str(np.round(prediction[0],2))
+    return str(np.round(prediction,2))
 
 
 if __name__=="__main__":
