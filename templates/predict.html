@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HousePredictor - Prediction</title>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Lato&display=swap');
+
+
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	background:#ebe0e0 ;
+	font-family: 'Josefin Sans', sans-serif;
+	line-height: 1.1;
+
+}
+
+body{
+	overflow-x: hidden;
+		scroll-behavior: smooth;
+
+}
+
+li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+.nav_parent{
+	width: 100vw;
+	height: 10vh;
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+}
+
+.logo_img{
+
+	width: 60px;
+	height:60px;
+}
+
+.logo_img img{
+	width: 100%;
+	height: 100%;
+
+}
+
+.nav_menu{
+	background-color: #ffff;
+	width: fit-content;
+	height: fit-content;
+}
+
+.list_items li{
+	display: inline-block;
+	padding: 1.2rem;
+
+
+}
+
+.list_items li a{
+		color: black;
+		font-size: 16px;
+
+}
+
+.primary_btn{
+	padding: 1.2rem;
+}
+
+.primary_btn a, .hero_btn a{
+	padding: 1rem;
+	border-radius: 10px;
+	background-color: #C6824B ;
+	color: #ffff;
+	font-size: 12px;
+
+}
+
+.hero_parent{
+	width: 100vw;
+	height: 90vh;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.hero_left{
+	width: 30vw;
+}
+
+.hero_left p{
+
+	font-size: 3rem;
+	line-height: 1.1;
+	margin-bottom: 5px;
+}
+
+
+
+.hero_img{
+	width: 40vw;
+	height: 70vh;
+}
+
+.hero_img img{
+	width: 100%;
+	height: 100%;
+}
+
+
+.hero_btn{
+	margin-left: 100px;
+}
+
+.hero_btn a{
+	padding: 1.2rem !important;
+}
+
+.about_section{
+	width: 100vw;
+	height: 100vh;
+}
+.title_area{
+	text-align: center;
+}
+.small_title{
+	font-size: 20px;
+	font-weight: bold;
+
+}
+
+.big_title{
+	font-size: 24px;
+	padding-top: 3px;
+}
+
+
+.about_parent{
+	width: 100vw;
+	height: 90vh;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+
+
+.about_left p{
+	font-size: 20px;
+}
+
+.about_right, .about_center{
+	width: 33vw;
+	padding: 3rem;
+}
+
+.about_left{
+	width: 20vw;
+	margin-left: 7rem;
+}
+
+
+.box, .box_n{
+	width: 20vw;
+	height: 5vh;
+	background-color: #FFBD59;
+	margin: 6px 0;
+	margin-right: 5vw;
+	border-radius: 12px;
+	padding: 8px;
+
+}
+
+.box:nth-child(1){
+	background-color: #C6824B;
+	font-weight: bold;
+}
+
+.box:nth-child(3){
+	background-color: #C6824B;
+	font-weight: bold;
+}
+
+
+.how_parent{
+	width: 100vw;
+	height: 50vh;
+
+}
+
+
+.how_parent .box1,.box3{
+	position: relative;
+	left: 350px;
+	margin: 3rem;
+}
+
+.how_parent .box2,.box4{
+	position: relative;
+	left: 820px;
+	background-color: #C6824B;
+	font-weight: bold;
+}
+
+.team_parent{
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+
+.img_box_1{
+	 width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: blue;
+  text-align: center;
+  margin-bottom: 15px;
+
+
+
+}
+
+.img_box_1 img{
+	 border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+
+}
+
+.footer{
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04AA6D;
+}
+
+label, select{
+margin:10px;
+}
+input{
+width:15vw;
+margin:10px;
+}
+
+button{
+
+text-align:center;
+}
+    </style>
+
+</head>
+
+
+<body>
+	
+	<nav class="nav_parent">
+		<div class="logo">
+			<div class="logo_img">
+				<img src="static/images/logo.png">
+			</div>
+		</div>
+		<div class="nav_menu">
+			<ul class="list_items">
+				<li><a href="index">Home</a></li>
+				<li><a href="index">About</a></li>
+				<li><a href="index">How To?</a></li>
+			</ul>
+		</div>
+		<div class="primary_btn">
+			<a href="">Predict</a>
+		</div>
+	</nav>
+
+
+
+	<form id="predictForm" method="POST">
+
+
+<!-- One "tab" for each step in the form: -->
+
+                     <div class="col-md-12 form-group" style="text-align: center " >
+                       <label ><b>Select the location:</b></label>
+                       <select style="border-radius:20px" class="selectpicker form-control" id="locality" name="locality"  required="1">
+                          {% for locality in locality %}
+                            <option value="{{ locality }}">{{ locality }}</option>
+                          {% endfor %}
+                       </select>
+                         <br>
+                           <label ><b>Select lease type:</b></label>
+
+                          <select style="border-radius:20px" class="selectpicker form-control" id="lease_type" name="lease_type"  required="1">
+                          {% for lease_type in lease_type %}
+                            <option value="{{ lease_type }}">{{ lease_type }}</option>
+                          {% endfor %}
+                       </select>
+
+                          <label ><b>Water Supply:</b></label>
+                         <select>
+                           {% for water_supply in water_supply %}
+                            <option value="{{ water_supply }}">{{ water_supply }}</option>
+                          {% endfor %}
+                       </select>
+                             </select>
+
+                         <label ><b>Negotiable:</b></label>
+                         <select id="negotiable">
+                          {% for negotiable in negotiable %}
+                            <option value="{{ negotiable }}">{{ negotiable }}</option>
+                          {% endfor %}
+                             </select>
+                     </div>
+
+
+
+
+
+                     <div class="form-group" style="text-align: center;" >
+                       <label><b>Enter the Number of Bathrooms:</b></label>
+                       <input style="border-radius: 20px;" type="text" class="form-control" id="bathroom" name="bathroom" placeholder="Enter Number of Bathrooms">
+                     </div>
+     <div class="col-md-6 form-group" style="text-align: center" >
+                       <label><b>Enter the Number of Balconies:</b></label>
+                       <input style="border-radius: 20px;" type="text" class="form-control" id="balconies" name="balconies" placeholder="Enter Number of Balconies">
+                     </div>
+                     <div class="col-md-6 form-group" style="text-align: center" >
+                       <label><b>Enter Square feet:</b></label>
+                       <input style="border-radius: 20px;" type="text" class="form-control" id="sqft" name="sqft" placeholder="Enter Square Feet">
+                     </div>
+
+
+
+   <div class="col-md-12 form-group" style="text-align: center " >
+        <label ><b>Lift</b></label>
+                       <select style="border-radius:20px" class="selectpicker form-control" id="lift" name="lift"  required="1">
+                            {% for lift in lift %}
+                            <option value="{{ lift }}">{{ lift }}</option>
+                          {% endfor %}
+                       </select>
+                       <label ><b>Gym</b></label>
+                       <select style="border-radius:20px" class="selectpicker form-control" id="gym" name="gym"  required="1">
+                              {% for gym in gym %}
+                            <option value="{{ gym }}">{{ gym }}</option>
+                          {% endfor %}
+                       </select>
+
+        <label ><b >Parking</b></label>
+                       <select class="selectpicker form-control" id="parking" name="parking"  required="1">
+    {% for parking in parking %}
+                            <option value="{{ parking }}">{{ parking }}</option>
+                          {% endfor %}
+                       </select>
+
+        <label ><b>Swimming Pool</b></label>
+                       <select  class="selectpicker form-control" id="swimming_pool" name="swimming_pool"  required="1">
+  {% for swimming_pool in swimming_pool %}
+                            <option value="{{ swimming_pool }}">{{ swimming_pool }}</option>
+                          {% endfor %}
+                       </select>
+
+        <label ><b>Furnishing</b></label>
+                       <select  class="selectpicker form-control" id="furnishing" name="furnishing"  required="1">
+                           {% for furnishing in furnishing %}
+                            <option value="{{ furnishing }}">{{ furnishing }}</option>
+                          {% endfor %}
+                       </select>
+       <div class="col-md-12 form-group">
+                       <button type="submit" style="margin-left:448px; margin-top:30px; width: 200px; border-radius: 30px;" class="btn btn-primary btn-lg" onclick="send_data()">Predict Price</button>
+                     </div>
+
+
+                        <h4><span id="prediction"></span></h4>
+
+
+</form>
+
+
+
+
+
+</body>
+</html>
